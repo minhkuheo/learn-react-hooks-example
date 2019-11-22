@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const ExampleUseEffect = () => {
-  const [data, setData] = useState([]);
-  const [query, setQuery] = useState("react");
+  const [data, setData] = useState(null);
+  const [query, setQuery] = useState("");
 
   useEffect(() => {
     let ignores = false;
@@ -16,7 +16,6 @@ const ExampleUseEffect = () => {
         setData(response.data);
       }
     }
-
     fetchData();
 
     return () => {
@@ -24,20 +23,29 @@ const ExampleUseEffect = () => {
     };
   }, [query]);
 
+  const onChange = event => setQuery(event.target.value);
+
+  console.log("[data] ", data);
+
   return (
     <>
       <h3>This is example of "fetch data" using useEffect</h3>
-      <input value={query} onChange={event => setQuery(event.target.value)} />
+      <input value={query} onChange={onChange} />
       <ul>
-        {data[0] &&
-          data.map((hitItem, idx) => {
-            if (idx <= 5) {
+        {data &&
+          data.hits.map((hitItem, idx) => {
+            const { title, url } = hitItem;
+            if (idx < 5 && !!hitItem.title) {
               return (
-                <li key={hitItem.ObjectId}>
-                  <a href={hitItem.url}>{hitItem.title}</a>
+                <li key={idx}>
+                  <a href={url} target="_blank" rel="noopener noreferrer">
+                    {title}
+                  </a>
                 </li>
               );
             }
+
+            return null;
           })}
       </ul>
     </>
@@ -45,3 +53,7 @@ const ExampleUseEffect = () => {
 };
 
 export default ExampleUseEffect;
+
+// function FetchDataWithoutSubmition({ query, onChange }) {
+//   return <input value={query} onChange={onChange} />;
+// }

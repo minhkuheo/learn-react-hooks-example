@@ -1,3 +1,16 @@
+## To be able to use Mobx Decorators:
+
+In VSCode, Go to
+**File => Preferences => Settings (or Control+comma)**
+
+and it will open the User Settings file.
+
+Add
+
+**"javascript.implicitProjectConfig.experimentalDecorators": true**
+
+to the file
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

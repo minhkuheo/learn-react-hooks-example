@@ -1,15 +1,17 @@
 import React from 'react';
 import './App.css';
-import AllCommonHookExamples from './containers/different-hooks-example';
+// import AllCommonHookExamples from './containers/different-hooks-example';
+import MyHeader from './components/header'
+import Router from './components/router';
 
 function App() {
   return (
     <div>
       <header>
-        This is the Header
+        <MyHeader />
       </header>
       <main>
-        <AllCommonHookExamples />
+        <Router />
       </main>
     </div>
   );

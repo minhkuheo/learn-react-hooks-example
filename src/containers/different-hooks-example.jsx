@@ -8,6 +8,13 @@ export default () => {
   return (
     <>
       <h1>This is the examples of different hooks</h1>
+      <a
+        href="https://github.com/minhkuheo/learn-react-hooks-example"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Git Repo
+      </a>
       <hr />
 
       <MySection>
