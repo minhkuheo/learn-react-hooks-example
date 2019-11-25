@@ -30,7 +30,7 @@ const MyHeader = observer(() => {
 export default MyHeader;
 
 const NonAuthHeader = observer(() => {
-  const { languageStore } = useStores();
+  const { languageStore, counterStore } = useStores();
   return (
     <ul>
       <li>
@@ -62,6 +62,9 @@ const NonAuthHeader = observer(() => {
         >
           <TranslateLanguage label="LABEL_CHANGE_VIETNAMESE" />
         </button>
+      </li>
+      <li>
+        <p>count from counterStore: <strong style={{ color: 'red', fontSize: '24px' }}>{counterStore.count}</strong></p>
       </li>
     </ul>
   );
