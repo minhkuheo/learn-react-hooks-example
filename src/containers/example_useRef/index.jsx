@@ -1,15 +1,18 @@
 import React, { useState, useRef } from "react";
-import { usePreviousValue } from "../../components/customized-hooks/usePreviousValue";
+import { observer } from 'mobx-react';
+import { usePreviousValue } from "../../hooks/usePreviousValue";
+import { useStores } from '../../hooks/useStores';
 
 /** useRef
  *    Do something with certain DOM
  */
-const ExampleUseRef = () => {
+const ExampleUseRef = observer(() => {
   const [count, setCount] = useState(0);
   const prevCount = usePreviousValue(count);
   const counterSpanElement = useRef(null);
   const counterButtonElement = useRef(null);
   const inputElement = useRef(null);
+  const { counterStore } = useStores();
 
   const increment = () => {
     setCount(count + 1);
@@ -42,8 +45,14 @@ const ExampleUseRef = () => {
         Increase
       </button>
       <button onClick={decrement}>Decrease</button>
+
+      <hr />
+      <br />
+      <h3>count from mobx counterStore: <strong style={{ color: 'red', fontSize: '24px' }}>{counterStore.count}</strong></h3>
+      <button type="button" onClick={() => counterStore.increment()}>++</button>
+      <button type="button" onClick={() => counterStore.decrement()}>--</button>
     </>
   );
-};
+});
 
 export default ExampleUseRef;

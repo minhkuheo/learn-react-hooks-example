@@ -5,18 +5,10 @@ import { BrowserRouter } from "react-router-dom";
 import * as serviceWorker from './serviceWorker';
 import App from './App';
 // import AuthDataProvider from './components/context/authDataProvider';
-import { Provider } from 'mobx-react';
-import AuthStore from './stores/authStore';
-
-const stores = {
-  authStore: AuthStore
-};
 
 ReactDOM.render(
   <BrowserRouter>
-    <Provider {...stores}>
-      <App />
-    </Provider>
+    <App />
   </BrowserRouter>
   , document.getElementById('root'));
 // ReactDOM.render(

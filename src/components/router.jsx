@@ -10,6 +10,7 @@ import { useAuthDataContext } from "./context/authDataProvider";
 import Homepage from "../containers/homepage";
 import ExampleUseEffect from "../containers/example_useEffect";
 import ExampleUseRef from "../containers/example_useRef";
+import ExampleUseReducer from "../containers/example_useReducer";
 import MySetting from "../containers/setting";
 import Page404 from "../containers/404page";
 
@@ -26,6 +27,7 @@ const Router = () => (
     <Route exact path={PATHS.HOME} component={Homepage} />
     <Route path={PATHS.USE_EFFECT} component={ExampleUseEffect} />
     <Route path={PATHS.USE_REF} component={ExampleUseRef} />
+    <Route path={PATHS.USE_REDUCER} component={ExampleUseReducer} />
 
     <PrivateRoute path={PATHS.SETTING} component={MySetting} />
 
